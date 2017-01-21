@@ -18,8 +18,8 @@ usage: unsourcemap.js <path-to-js> <path-to-source-map> <output-dir>
 ```
 ## Questions
 
-- Does this correctly avoid path traversal attacks? (What if a file is
-  called `..`?)
+- Does this correctly avoid path traversal attacks? (What if the source
+  map lists a source URL of `..`?)
 - Why does the source-map consumer not need a reference to the packed
   code? Is it finding it automatically? (Doubtful!) I thought source
   maps only encoded a set of deltas and missing information, not the whole
