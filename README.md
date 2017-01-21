@@ -16,3 +16,13 @@ I don't even know how this works yet.
 ```
 usage: unsourcemap.js <path-to-js> <path-to-source-map> <output-dir>
 ```
+## Questions
+
+- Does this correctly avoid path traversal attacks? (What if a file is
+  called `..`?)
+- Why does the source-map consumer not need a reference to the packed
+  code? Is it finding it automatically? (Doubtful!) I thought source
+  maps only encoded a set of deltas and missing information, not the whole
+  source! Are all source maps like this, or is it an optional feature? If the
+  latter, how *would* I combine the packed source with the map?
+- Who wants to actually maintain this?
