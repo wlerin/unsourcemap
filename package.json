@@ -1,26 +1,28 @@
 {
-  "name": "maximize",
+  "name": "unsourcemap",
   "version": "0.0.1",
-  "author": "Chase Douglas <chasedouglas@gmail.com>",
-  "description": "Unobfuscate and beautify obfuscated/minified JavaScript code with source maps",
+  "author": "Tim McCormack <cortex@brainonfire.net>",
+  "description": "Unpack a minified JS file using a source map",
   "contributors": [
     {
       "name": "Chase Douglas",
       "email": "chasedouglas@gmail.com"
+    },
+    {
+      "name": "Tim McCormack",
+      "email": "cortex@brainonfire.net"
     }
   ],
   "bin": {
-    "maximize": "./maximize.js"
+    "unsourcemap": "./unsourcemap.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/txase/maximize.git"
+    "url": "https://github.com/timmc/unsourcemap.git"
   },
   "dependencies": {
     "argparse": "*",
-    "falafel": "*",
-    "js-beautify": "*",
-    "seq": "*",
-    "source-map": "*"
+    "falafel": "0.3.*",
+    "source-map": "0.5.*"
   }
 }
