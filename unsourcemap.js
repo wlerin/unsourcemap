@@ -23,7 +23,7 @@ parser.addArgument(['-m', '--map'], {help: 'Path to map file to recover (optiona
 parser.addArgument(['-o', '--out'], {help: 'Path to directory where sources will be dumped'});
 var args = parser.parseArgs();
 
-var code = fs.readFileSync(args['js'][0], 'utf8').toString();
+var code = fs.readFileSync(args['js'], 'utf8').toString();
 
 if(!args.map){
     var sourceMapRE = /^\/\/[@#] sourceMappingURL=(.*)$/m;
@@ -34,13 +34,13 @@ if(!args.map){
     } else{
     	mapName = mapName[1];
     }
-    var mapPath = path.resolve(args['js'][0].split("/").slice(0,-1).join("/"), mapName);
+    var mapPath = path.resolve(args['js'].split("/").slice(0,-1).join("/"), mapName);
 }
 
 var mapData = fs.readFileSync(!args.map?mapPath:args.map, 'utf8').toString();
 var map = new sourceMap.SourceMapConsumer(mapData);
 
-var outDir = args['out'][0];
+var outDir = args['out'];
 if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, 0o755);
 }
@@ -50,7 +50,7 @@ function sanit(url) {
 }
 
 for (var i = 0; i < map.sources.length; i++) {
-    var sUrl = map.sources[i];
+    var sUrl = map.sources;
     var url = sanit(sUrl);
     var dir=url.split("/").slice(0,-1).join("/");
     
