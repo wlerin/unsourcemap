@@ -18,9 +18,9 @@ var parser = new ArgumentParser({
     description: 'Deobfuscate JavaScript code using a source map',
 });
 
-parser.addArgument(['-j', '--js'], {help: 'Path to javascript file to recover', nargs: 1});
-parser.addArgument(['-m', '--map'], {help: 'Path to map file to recover (optional)', nargs: 1, required: false});
-parser.addArgument(['-o', '--out'], {help: 'Path to directory where sources will be dumped', nargs: 1});
+parser.addArgument(['-j', '--js'], {help: 'Path to javascript file to recover'});
+parser.addArgument(['-m', '--map'], {help: 'Path to map file to recover (optional)', required: false});
+parser.addArgument(['-o', '--out'], {help: 'Path to directory where sources will be dumped'});
 var args = parser.parseArgs();
 
 var code = fs.readFileSync(args['js'][0], 'utf8').toString();
